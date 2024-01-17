@@ -112,14 +112,20 @@ export const cloneTemplate = async (
     if (cliType === CliType[0]) {
       templates = "https://github.com/lizncoder/antd-simple-umi-3.git";
     } else if (cliType === CliType[1]) {
-      templates = "https://github.com/lizncoder/antd-complete-umi-4.git";
+      templates = "https://github.com/lizncoder/antd-complete-umi-3.git";
     }
   }
   //umi@4
   else if (umiVersion === CreateCondition[4]) {
+    if (cliType === CliType[0]) {
+      templates = "https://github.com/lizncoder/antd-simple-umi-4.git";
+    } else if (cliType === CliType[1]) {
+      templates = "https://github.com/lizncoder/antd-complete-umi-4.git";
+    }
   }
 
   startSpinner("请耐心等待，正在克隆模板");
+
   //clone模板
   gitClone(templates, targetDir, async (err: any) => {
     if (!err) {

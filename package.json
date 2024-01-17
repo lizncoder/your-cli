@@ -37,7 +37,6 @@
     "fs-extra": "^11.2.0",
     "git-clone": "^0.2.0",
     "globby": "^11.0.4",
-    "handlebars": "^4.7.8",
     "inquirer": "^8.2.0",
     "ora": "^5.4.1",
     "pacote": "12.0.2"
