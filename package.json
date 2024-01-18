@@ -1,6 +1,6 @@
 {
-  "name": "your-cli",
-  "version": "1.0.0",
+  "name": "omnifico",
+  "version": "1.0.3",
   "description": "Your first scaffold start",
   "main": "./build",
   "scripts": {

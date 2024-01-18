@@ -59,6 +59,12 @@ export const getCmdArgs = async (projectName: string) => {
       default: "1.0.0",
     },
     {
+      type: "confirm",
+      name: "drawerType",
+      message: " 🐄 是否选择自定义抽屉?",
+      default: false,
+    },
+    {
       type: "list",
       name: "umiVersion",
       message: " 🐂 使用 umi@4 还是 umi@3 ?",
@@ -69,12 +75,9 @@ export const getCmdArgs = async (projectName: string) => {
       name: "cliType",
       message: " 🚀 要全量的还是一个简单的脚手架?",
       choices: [CliType[0], CliType[1]],
-    },
-    {
-      type: "confirm",
-      name: "drawerType",
-      message: " 🐄 是否选择自定义抽屉?",
-      default: false,
+      when: function (answers: any) {
+        return answers.umiVersion === CreateCondition[3];
+      },
     },
   ]);
 };
@@ -117,11 +120,8 @@ export const cloneTemplate = async (
   }
   //umi@4
   else if (umiVersion === CreateCondition[4]) {
-    if (cliType === CliType[0]) {
-      templates = "https://github.com/lizncoder/antd-simple-umi-4.git";
-    } else if (cliType === CliType[1]) {
-      templates = "https://github.com/lizncoder/antd-complete-umi-4.git";
-    }
+    templates = "https://github.com/lizncoder/antd-complete-umi-4.git";
+    console.log("🧎🏻全量区块暂时不支持 umi@4");
   }
 
   startSpinner("请耐心等待，正在克隆模板");
